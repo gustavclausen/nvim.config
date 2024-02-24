@@ -217,6 +217,15 @@ M.languages = {
     end,
     lint_config = nil,
   },
+  http = {
+    language_server = nil,
+    language_server_settings = nil,
+    tools = {},
+    treesitter = { "json", "http" },
+    filetype = "http",
+    formatter_config = nil,
+    lint_config = nil,
+  },
 }
 
 return M
