@@ -15,6 +15,10 @@ map("n", "<cr>", "ciw") -- Quickly jump into changing word with insert mode
 map("i", "jk", "<Esc>") -- Quickly change to normal mode
 map("v", "y", "ygv<Esc>") -- Keep position after visual mode copy
 
+-- Don't yank/cut on delete per default
+map("n", "d", '"_d', { noremap = true })
+map("v", "d", '"_d', { noremap = true })
+
 -- leader based (normal mode)
 wk.register({
   s = {
