@@ -78,7 +78,6 @@ wk.register({
         "Lists recent projects",
       },
     },
-    t = { "<cmd>ToggleTerm direction=float<CR>", "Toggle terminal" },
     g = { name = "Git" },
     s = {
       name = "Snippets",
