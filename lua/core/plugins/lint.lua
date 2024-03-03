@@ -6,7 +6,7 @@ return {
     local filetypes = {}
 
     for _, lan in pairs(settings.languages) do
-      if not lan.lint_config == nil then
+      if not (lan.lint_config == nil) then
         filetypes[lan.filetype] = lan.lint_config
       end
     end
