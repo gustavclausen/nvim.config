@@ -28,7 +28,7 @@ return {
           end,
           capabilities = capabilities,
           flags = { debounce_text_changes = 150 },
-          settings = not lan.language_server_settings == nil and lan.language_server_settings or {},
+          settings = not (lan.language_server_settings == nil) and lan.language_server_settings or {},
         })
       end
     end
