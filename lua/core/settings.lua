@@ -20,10 +20,10 @@ M.languages = {
     language_server = "dockerls",
     language_server_settings = nil,
     treesitter = { "dockerfile" },
-    tools = { "dockerfile-language-server" },
+    tools = { "dockerfile-language-server", "hadolint" },
     filetype = "dockerfile",
     formatter_config = nil,
-    lint_config = nil,
+    lint_config = { "hadolint" },
   },
   json = {
     language_server = "jsonls",
