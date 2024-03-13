@@ -6,6 +6,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
     "gustavclausen/telescope-project.nvim",
+    "nvim-telescope/telescope-file-browser.nvim",
   },
   config = function()
     local telescope = require("telescope")
@@ -20,6 +21,10 @@ return {
           },
           hidden_files = true,
           theme = "dropdown",
+        },
+        file_browser = {
+          hijack_netrw = true,
+          hidden = { file_browser = true, folder_browser = true },
         },
       },
       defaults = {
@@ -47,5 +52,6 @@ return {
     telescope.load_extension("fzf")
     telescope.load_extension("project")
     telescope.load_extension("ui-select")
+    telescope.load_extension("file_browser")
   end,
 }
