@@ -76,7 +76,7 @@ wk.register({
         "Lists recent projects",
       },
     },
-    g = { name = "Git" },
+    g = { name = "Git", g = { "<cmd>LazyGit<CR>", "Open LazyGit" } },
     s = {
       name = "Snippets",
       r = {
