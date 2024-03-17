@@ -45,7 +45,8 @@ wk.register({
     s = { "<cmd>Telescope live_grep<CR>", "Find string in files" },
     r = { "<cmd>Neotree reveal<CR>", "Reveal file in tree explorer" },
   },
-  e = { "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>", "Open file browser" },
+  -- neo-tree
+  e = { "<cmd>Neotree<CR>", "Show and/or focus on tree explorer" },
   b = {
     name = "Buffer",
     n = { "<C-i>", "Next buffer" },
