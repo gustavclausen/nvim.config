@@ -32,13 +32,15 @@ return {
           },
         },
       },
+      follow_current_file = {
+        enabled = true,
+      },
       window = {
+        position = "float",
         mappings = {
           ["<space>"] = "",
-          ["<cr>"] = "open_with_window_picker",
           ["<C-x>"] = "split_with_window_picker",
           ["<C-v>"] = "vsplit_with_window_picker",
-          ["t"] = "open_tabnew",
           ["C"] = "close_node",
           ["z"] = "close_all_nodes",
         },
