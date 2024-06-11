@@ -13,7 +13,7 @@ return {
       lsp_document_formatting = false, -- null-ls handles formatting
       lsp_codelens = false,
       lsp_inlay_hints = {
-        enabled = false,
+        enable = false,
         only_current_line = true,
       },
       lsp_on_attach = function(client, bufnr)
