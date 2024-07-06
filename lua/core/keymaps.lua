@@ -71,10 +71,6 @@ wk.register({
         "<cmd>Telescope search_history<CR>",
         "Lists searches that were executed recently and reruns them when selected",
       },
-      p = {
-        "<cmd>lua require('telescope').extensions.project.project{ display_type = 'full' }<CR>",
-        "Lists recent projects",
-      },
     },
     g = { name = "Git", g = { "<cmd>LazyGit<CR>", "Open LazyGit" } },
     s = {
