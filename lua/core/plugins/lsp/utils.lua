@@ -21,10 +21,24 @@ function M.custom_lsp_attach(_, bufnr)
     vim.cmd("noautocmd w")
   end, { desc = "Format buffer without format" })
 
-  wk.register({
-    f = { "<cmd>Format<cr>", "Format current buffer" },
-    F = { "<cmd>lua require('core.plugins.lsp.utils').toggle_autoformat()<cr>", "Toggle format on save" },
-  }, { prefix = "<leader>m", mode = "n", default_options })
+  wk.add({
+    {
+      "<leader>mF",
+      "<cmd>lua require('core.plugins.lsp.utils').toggle_autoformat()<cr>",
+      desc = "Toggle format on save",
+      silent = true,
+      noremap = true,
+      buffer = bufnr,
+    },
+    {
+      "<leader>mf",
+      "<cmd>Format<cr>",
+      desc = "Format current buffer",
+      silent = true,
+      noremap = true,
+      buffer = bufnr,
+    },
+  })
 
   vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
   vim.api.nvim_create_autocmd("BufWritePost", {
@@ -38,27 +52,113 @@ function M.custom_lsp_attach(_, bufnr)
     end,
   })
 
-  wk.register({
-    l = {
-      name = "LSP",
-      a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code action" },
-      d = { "<cmd>Telescope lsp_definitions<cr>", "Go to definition" },
-      D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Go to declaration" },
-      e = { "<cmd>Telescope diagnostics bufnr=0<cr>", "Diagnostics" },
-      k = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover commands" },
-      i = {
-        "<cmd>Telescope lsp_implementations<cr>",
-        "Show implementations",
-      },
-      r = { "<cmd>Telescope lsp_references<cr>", "References" },
-      R = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-      l = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Line diagnostics" },
-      n = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next diagnostic" },
-      p = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev diagnostic" },
-      q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix diagnostics" },
-      t = { "<cmd>Telescope lsp_type_definitions<cr>", "Type definition" },
+  wk.add({
+    { "<leader>l", group = "LSP" },
+    {
+      "<leader>lD",
+      "<cmd>lua vim.lsp.buf.declaration()<cr>",
+      desc = "Go to declaration",
+      silent = true,
+      noremap = true,
+      buffer = bufnr,
     },
-  }, { prefix = "<leader>", mode = "n", default_options })
+    {
+      "<leader>lR",
+      "<cmd>lua vim.lsp.buf.rename()<cr>",
+      desc = "Rename",
+      silent = true,
+      noremap = true,
+      buffer = bufnr,
+    },
+    {
+      "<leader>la",
+      "<cmd>lua vim.lsp.buf.code_action()<cr>",
+      desc = "Code action",
+      silent = true,
+      noremap = true,
+      buffer = bufnr,
+    },
+    {
+      "<leader>ld",
+      "<cmd>Telescope lsp_definitions<cr>",
+      desc = "Go to definition",
+      silent = true,
+      noremap = true,
+      buffer = bufnr,
+    },
+    {
+      "<leader>le",
+      "<cmd>Telescope diagnostics bufnr=0<cr>",
+      desc = "Diagnostics",
+      silent = true,
+      noremap = true,
+      buffer = bufnr,
+    },
+    {
+      "<leader>li",
+      "<cmd>Telescope lsp_implementations<cr>",
+      desc = "Show implementations",
+      silent = true,
+      noremap = true,
+      buffer = bufnr,
+    },
+    {
+      "<leader>lk",
+      "<cmd>lua vim.lsp.buf.hover()<cr>",
+      desc = "Hover commands",
+      silent = true,
+      noremap = true,
+      buffer = bufnr,
+    },
+    {
+      "<leader>ll",
+      "<cmd>lua vim.diagnostic.open_float()<CR>",
+      desc = "Line diagnostics",
+      silent = true,
+      noremap = true,
+      buffer = bufnr,
+    },
+    {
+      "<leader>ln",
+      "<cmd>lua vim.diagnostic.goto_next()<cr>",
+      desc = "Next diagnostic",
+      silent = true,
+      noremap = true,
+      buffer = bufnr,
+    },
+    {
+      "<leader>lp",
+      "<cmd>lua vim.diagnostic.goto_prev()<cr>",
+      desc = "Prev diagnostic",
+      silent = true,
+      noremap = true,
+      buffer = bufnr,
+    },
+    {
+      "<leader>lq",
+      "<cmd>lua vim.diagnostic.setloclist()<cr>",
+      desc = "Quickfix diagnostics",
+      silent = true,
+      noremap = true,
+      buffer = bufnr,
+    },
+    {
+      "<leader>lr",
+      "<cmd>Telescope lsp_references<cr>",
+      desc = "References",
+      silent = true,
+      noremap = true,
+      buffer = bufnr,
+    },
+    {
+      "<leader>lt",
+      "<cmd>Telescope lsp_type_definitions<cr>",
+      desc = "Type definition",
+      silent = true,
+      noremap = true,
+      buffer = bufnr,
+    },
+  })
 end
 
 return M
