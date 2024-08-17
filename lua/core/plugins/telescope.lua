@@ -5,6 +5,10 @@ return {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
+    "jonarrien/telescope-cmdline.nvim",
+  },
+  keys = {
+    { ":", "<cmd>Telescope cmdline<cr>", desc = "Cmdline" },
   },
   config = function()
     local telescope = require("telescope")
@@ -38,5 +42,6 @@ return {
 
     telescope.load_extension("fzf")
     telescope.load_extension("ui-select")
+    telescope.load_extension("cmdline")
   end,
 }
