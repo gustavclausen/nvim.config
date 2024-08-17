@@ -24,6 +24,7 @@ wk.add({
   { "<leader>bn", "<C-i>", desc = "Next buffer" },
   { "<leader>bp", "<C-o>", desc = "Previous buffer" },
   { "<leader>e", "<cmd>Neotree reveal<CR>", desc = "Show and/or focus on tree explorer" },
+  { "<leader>u", "<cmd>Telescope undo<CR>", desc = "Show undotree (Telescope)" },
   { "<leader>f", group = "Files" },
   { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find files" },
   { "<leader>fs", "<cmd>Telescope live_grep<CR>", desc = "Find string in files" },

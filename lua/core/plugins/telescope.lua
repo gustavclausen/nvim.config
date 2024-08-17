@@ -5,6 +5,7 @@ return {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
+    "debugloop/telescope-undo.nvim",
     "jonarrien/telescope-cmdline.nvim",
   },
   keys = {
@@ -17,6 +18,8 @@ return {
     telescope.setup({
       extensions = {
         require("telescope.themes").get_dropdown({}),
+        require("telescope.themes").get_dropdown({}),
+        undo = {},
       },
       defaults = {
         file_ignore_patterns = { ".git/" },
@@ -42,6 +45,7 @@ return {
 
     telescope.load_extension("fzf")
     telescope.load_extension("ui-select")
+    telescope.load_extension("undo")
     telescope.load_extension("cmdline")
   end,
 }
