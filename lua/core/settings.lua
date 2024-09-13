@@ -135,7 +135,7 @@ M.languages = {
     lint_config = { "yamllint" },
   },
   typescript = {
-    language_server = "tsserver",
+    language_server = "ts_ls",
     language_server_settings = nil,
     treesitter = nil,
     tools = { "typescript-language-server", "prettier", "eslint_d" },
