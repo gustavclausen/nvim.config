@@ -226,6 +226,15 @@ M.languages = {
     formatter_config = nil,
     lint_config = nil,
   },
+  cs = {
+    language_server = "csharp_ls",
+    language_server_settings = nil,
+    tools = {},
+    treesitter = "c_sharp",
+    filetype = "cs",
+    formatter_config = nil,
+    lint_config = nil,
+  },
 }
 
 return M
