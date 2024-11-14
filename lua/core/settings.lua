@@ -227,8 +227,14 @@ M.languages = {
     lint_config = nil,
   },
   cs = {
-    language_server = "csharp_ls",
+    language_server = "omnisharp",
     language_server_settings = nil,
+    language_server_cmd = {
+      string.format("%s/mason/bin/omnisharp", vim.fn.stdpath("data")),
+      "--languageserver",
+      "--hostPID",
+      tostring(vim.fn.getpid()),
+    },
     tools = {},
     treesitter = "c_sharp",
     filetype = "cs",
