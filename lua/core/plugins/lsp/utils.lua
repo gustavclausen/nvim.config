@@ -41,12 +41,12 @@ function M.custom_lsp_attach(_, bufnr)
   })
 
   vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-  vim.api.nvim_create_autocmd("BufWritePost", {
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*",
     group = augroup,
-    buffer = bufnr,
-    callback = function()
+    callback = function(args)
       if AUTOFORMAT_ACTIVE then -- global var defined in functions.lua
-        vim.cmd("FormatWrite")
+        require("conform").format({ bufnr = args.buf })
       end
       require("lint").try_lint()
     end,

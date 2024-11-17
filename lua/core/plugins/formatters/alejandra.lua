@@ -1,6 +1,6 @@
 return function()
   return {
-    exe = "alejandra",
+    command = "alejandra",
     args = {
       "-qq",
     },

@@ -1,24 +1,31 @@
 return {
-  "mhartington/formatter.nvim",
+  "stevearc/conform.nvim",
   config = function()
     local settings = require("core.settings")
 
     local filetypes = {
-      ["*"] = {
-        require("formatter.filetypes.any").remove_trailing_whitespace,
-      },
+      ["_"] = { "trim_whitespace" },
     }
+    local formatters = {}
 
     for _, lan in pairs(settings.languages) do
-      if lan.formatter_config ~= nil and lan.filetype ~= nil then
-        filetypes[lan.filetype] = lan.formatter_config()
+      if lan.formatters ~= nil and lan.filetype ~= nil then
+        filetypes[lan.filetype] = lan.formatters
       end
     end
 
-    require("formatter").setup({
+    for formatter, f_config in pairs(settings.formatters) do
+      formatters[formatter] = f_config()
+    end
+
+    require("conform").setup({
       logging = true,
       log_level = vim.log.levels.WARN,
-      filetype = filetypes,
+      formatters_by_ft = filetypes,
+      formatters = formatters,
+      default_format_opts = {
+        lsp_format = "fallback",
+      },
     })
   end,
 }
