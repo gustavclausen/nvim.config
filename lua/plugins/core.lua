@@ -9,6 +9,9 @@ return {
         },
       },
       dashboard = { enabled = false },
+      lazygit = {
+        configure = false,
+      },
     },
   },
   {
