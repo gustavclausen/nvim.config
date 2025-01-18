@@ -12,6 +12,16 @@ return {
       lazygit = {
         configure = false,
       },
+      terminal = { enabled = true },
+    },
+    keys = {
+      {
+        "<leader>tt",
+        function()
+          Snacks.terminal()
+        end,
+        desc = "Toggle Terminal",
+      },
     },
   },
   {
