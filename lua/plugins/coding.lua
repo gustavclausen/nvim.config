@@ -158,6 +158,33 @@ local languages = {
         "--hostPID",
         tostring(vim.fn.getpid()),
       },
+      keys = {
+        {
+          "gd",
+          "<cmd>lua require('omnisharp_extended').telescope_lsp_definition()<CR>",
+          desc = "Goto Definition (C#)",
+        },
+        {
+          "gy",
+          "<cmd>lua require('omnisharp_extended').telescope_lsp_type_definition()<CR>",
+          desc = "Goto T[y]pe Definition (C#)",
+        },
+        {
+          "gr",
+          "<cmd>lua require('omnisharp_extended').telescope_lsp_references()<CR>",
+          desc = "References (C#)",
+        },
+        {
+          "gI",
+          "<cmd>lua require('omnisharp_extended').telescope_lsp_implementation()<CR>",
+          desc = "Goto Implementation (C#)",
+        },
+      },
+      settings = {
+        RoslynExtensionsOptions = {
+          enableDecompilationSupport = true,
+        },
+      },
     },
     treesitter = "c_sharp",
     filetype = "cs",
@@ -267,4 +294,5 @@ return {
       })
     end,
   },
+  { "Hoffs/omnisharp-extended-lsp.nvim" },
 }
