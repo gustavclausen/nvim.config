@@ -7,3 +7,4 @@ local opt = vim.opt
 opt.mouse = ""
 opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 opt.foldmethod = "manual"
+vim.g.lazyvim_picker = "telescope"
