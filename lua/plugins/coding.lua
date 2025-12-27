@@ -67,7 +67,7 @@ local languages = {
   },
   terraform = {
     language_server = "terraformls",
-    treesitter = "hcl",
+    treesitter = { "hcl" },
     filetype = "terraform",
     formatters = { "terraform_fmt" },
   },
@@ -92,7 +92,7 @@ local languages = {
         hover = true,
       },
     },
-    treesitter = "yaml",
+    treesitter = { "yaml" },
     tools = { "yamllint", "prettier" },
     filetype = "yaml",
     formatters = { "prettier" },
@@ -100,23 +100,23 @@ local languages = {
   },
   typescript = {
     language_server = "ts_ls",
-    treesitter = "typescript",
+    treesitter = { "typescript" },
     tools = { "prettier", "eslint_d" },
     filetype = "typescript",
     formatters = { "prettier" },
   },
   go = {
     language_server = "gopls",
-    treesitter = "go",
+    treesitter = { "go" },
     filetype = "go",
     formatters = { "goimports", "gofumpt" },
   },
   toml = {
-    treesitter = "toml",
+    treesitter = { "toml" },
     filetype = "toml",
   },
   vim = {
-    treesitter = "vim",
+    treesitter = { "vim" },
     filetype = "vim",
   },
   python = {
@@ -129,19 +129,19 @@ local languages = {
         },
       },
     },
-    treesitter = "python",
+    treesitter = { "python" },
     tools = { "flake8", "black" },
     filetype = "python",
     formatters = { "black" },
   },
   helm = {
     language_server = "helm_ls",
-    treesitter = "helm",
+    treesitter = { "helm" },
     filetype = "helm",
   },
   nix = {
     language_server = "nil_ls",
-    treesitter = "nix",
+    treesitter = { "nix" },
     filetype = "nix",
     formatters = { "alejandra" },
   },
@@ -186,7 +186,7 @@ local languages = {
         },
       },
     },
-    treesitter = "c_sharp",
+    treesitter = { "c_sharp" },
     filetype = "cs",
   },
 }
@@ -210,7 +210,9 @@ for _, lan in pairs(languages) do
   end
 
   if lan.treesitter ~= nil then
-    table.insert(treesitter_langs, lan.treesitter)
+    for _, ts_lang in ipairs(lan.treesitter) do
+      table.insert(treesitter_langs, ts_lang)
+    end
   end
 
   if lan.filetype ~= nil then
@@ -226,7 +228,7 @@ end
 
 return {
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = {
       ensure_installed = tools,
     },
@@ -257,7 +259,7 @@ return {
     enable = true,
   },
   {
-    "echasnovski/mini.surround",
+    "nvim-mini/mini.surround",
     opts = {
       mappings = {
         add = "gsa",
