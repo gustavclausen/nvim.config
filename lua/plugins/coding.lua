@@ -297,5 +297,4 @@ return {
     end,
   },
   { "Hoffs/omnisharp-extended-lsp.nvim" },
-  { "github/copilot.vim" },
 }
